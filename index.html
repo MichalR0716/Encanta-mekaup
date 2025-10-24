@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Encantada</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<nav class="site-nav" aria-label="Navegación principal">
+    <div class="nav-left">
+        <a href="#" class="logo">Encantada</a>
+    </div>
+
+    <div class="nav-center">
+        <form class="search-form" role="search" aria-label="Buscar">
+            <button type="submit" class="search-btn" aria-label="Buscar">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                    <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2" fill="none"/>
+                </svg>
+            </button>
+            <input type="search" name="q" placeholder="Buscar..." aria-label="Buscar productos">
+        </form>
+    </div>
+
+    <div class="nav-right">
+        <button class="btn btn-outline" type="button">Acceso</button>
+        <button class="btn btn-primary" type="button">Registro</button>
+
+        <button class="bag-btn" type="button" aria-label="Ver carrito">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6 8L6.5 5A3.5 3.5 0 0110 2.5h4A3.5 3.5 0 0117.5 5L18 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                <path d="M3 8h18l-1.2 10.2A2 2 0 0117.82 20H6.18a2 2 0 01-1.98-1.8L3 8z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+            </svg>
+            <span class="bag-count" aria-hidden="true">0</span>
+        </button>
+    </div>
+</nav>
+
+<!-- NUEVO: navegación secundaria de categorías -->
+<nav class="sub-nav" aria-label="Categorías principales">
+    <ul class="sub-nav-list">
+        <li class="sub-nav-item"><a class="sub-nav-link" href="#">Cuidado facial</a></li>
+        <li class="sub-nav-item"><a class="sub-nav-link" href="#">Labios</a></li>
+        <li class="sub-nav-item"><a class="sub-nav-link" href="#">Cajas y ojos</a></li>
+        <li class="sub-nav-item"><a class="sub-nav-link" href="#">Rostro</a></li>
+        <li class="sub-nav-item"><a class="sub-nav-link" href="#">Rostro</a></li>
+        <li class="sub-nav-item"><a class="sub-nav-link" href="#">Brochas</a></li>
+        <li class="sub-nav-item"><a class="sub-nav-link" href="#">Promociones</a></li>
+    </ul>
+</nav>
+
+<!-- NUEVA SECCIÓN: Carrusel (máx 3 imágenes) -->
+<section class="carousel-section" aria-label="Carrusel principal">
+    <div class="carousel" id="mainCarousel">
+        <button class="carousel-control prev" aria-label="Anterior">&lt;</button>
+
+        <div class="carousel-viewport">
+            <ul class="carousel-track">
+                <li class="carousel-slide">
+                    <!-- reemplaza src por tus imágenes (máximo 3) -->
+                    <img src="/IMG/ricardo-moura-JQ1HUhMdELM-unsplash.jpg" alt="Slide 1">
+                </li>
+                <li class="carousel-slide">
+                    <img src="/IMG/ricardo-moura-JQ1HUhMdELM-unsplash.jpg" alt="Slide 2">
+                </li>
+                <li class="carousel-slide">
+                    <img src="/IMG/ricardo-moura-JQ1HUhMdELM-unsplash.jpg" alt="Slide 3">
+                </li>
+            </ul>
+        </div>
+
+        <button class="carousel-control next" aria-label="Siguiente">&gt;</button>
+    </div>
+
+    <!-- Indicadores del carrusel: ahora fuera del .carousel y centrados -->
+    <div class="carousel-dots" role="tablist" aria-label="Indicadores del carrusel">
+        <button class="dot active" data-index="0" aria-label="Ir al slide 1"></button>
+        <button class="dot" data-index="1" aria-label="Ir al slide 2"></button>
+        <button class="dot" data-index="2" aria-label="Ir al slide 3"></button>
+    </div>
+</section>
+
+<!-- NUEVA SECCIÓN: Cards de productos -->
+<section class="cards-section" aria-label="Productos destacados">
+    <div class="cards-grid">
+        <article class="card" tabindex="0">
+            <img src="images/product1.jpg" alt="Producto 1" class="card-img">
+            <div class="card-info">
+                <h3 class="card-title">Producto 1</h3>
+                <p class="card-price">$12.99</p>
+                <div class="card-actions">
+                    <button class="btn btn-primary" type="button">Comprar</button>
+                </div>
+            </div>
+        </article>
+
+        <article class="card" tabindex="0">
+            <img src="images/product2.jpg" alt="Producto 2" class="card-img">
+            <div class="card-info">
+                <h3 class="card-title">Producto 2</h3>
+                <p class="card-price">$18.50</p>
+                <div class="card-actions">
+                    <button class="btn btn-primary" type="button">Comprar</button>
+                </div>
+            </div>
+        </article>
+
+        <article class="card" tabindex="0">
+            <img src="images/product3.jpg" alt="Producto 3" class="card-img">
+            <div class="card-info">
+                <h3 class="card-title">Producto 3</h3>
+                <p class="card-price">$9.75</p>
+                <div class="card-actions">
+                    <button class="btn btn-primary" type="button">Comprar</button>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
+
+<script>
+/* JS mínimo para funcionalidad del carrusel (3 slides). Modifica si necesitas autoplay u otras opciones. */
+(function(){
+    const carousel = document.getElementById('mainCarousel');
+    const track = carousel.querySelector('.carousel-track');
+    const slides = Array.from(track.children);
+    const prev = carousel.querySelector('.carousel-control.prev');
+    const next = carousel.querySelector('.carousel-control.next');
+    const dots = Array.from(carousel.querySelectorAll('.dot'));
+    let index = 0;
+
+    function update() {
+        const percent = -index * 100;
+        track.style.transform = `translateX(${percent}%)`;
+        dots.forEach((d,i)=> d.classList.toggle('active', i===index));
+    }
+
+    prev.addEventListener('click', ()=> {
+        index = (index - 1 + slides.length) % slides.length;
+        update();
+    });
+
+    next.addEventListener('click', ()=> {
+        index = (index + 1) % slides.length;
+        update();
+    });
+
+    dots.forEach(d => d.addEventListener('click', (e) => {
+        index = Number(e.currentTarget.dataset.index) || 0;
+        update();
+    }));
+
+    // soporte teclado (izq/der)
+    carousel.addEventListener('keydown', (e) => {
+        if (e.key === 'ArrowLeft') prev.click();
+        if (e.key === 'ArrowRight') next.click();
+    });
+
+    // init
+    update();
+})();
+</script>
+
+</body>
+</html>
