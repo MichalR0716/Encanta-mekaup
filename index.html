@@ -10,21 +10,24 @@
 
 <nav class="site-nav" aria-label="Navegación principal">
     <div class="nav-left">
-        <a href="#" class="logo">Encantada</a>
-    </div>
-
-    <div class="nav-center">
         <form class="search-form" role="search" aria-label="Buscar">
             <button type="submit" class="search-btn" aria-label="Buscar">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                     <path d="M21 21l-4.35-4.35" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                     <circle cx="11" cy="11" r="6" stroke="currentColor" stroke-width="2" fill="none"/>
                 </svg>
             </button>
+            <!-- Input accesible pero oculto visualmente -->
             <input type="search" name="q" placeholder="Buscar..." aria-label="Buscar productos">
         </form>
     </div>
 
+    <div class="nav-center">
+        <a href="#" class="logo">
+            <img src="IMG/vane-06.png" alt="Encantada" width="160" height="36">
+        </a>
+    </div>
+    
     <div class="nav-right">
         <button class="btn btn-outline" type="button">Acceso</button>
         <button class="btn btn-primary" type="button">Registro</button>
@@ -84,7 +87,8 @@
 </section>
 
 <!-- NUEVA SECCIÓN: Cards de productos -->
-<section class="cards-section" aria-label="Productos destacados">
+<section class="cards-section" aria-label="Promociones">
+    <h2 class="section-title">Promociones</h2>
     <div class="cards-grid">
         <article class="card" tabindex="0">
             <img src="images/product1.jpg" alt="Producto 1" class="card-img">
@@ -121,48 +125,91 @@
     </div>
 </section>
 
+<!-- NUEVA SECCIÓN: Los más vendidos -->
+<section class="cards-section" aria-label="Los más vendidos">
+    <h2 class="section-title">Los más vendidos</h2>
+    <div class="cards-grid">
+        <!-- Primera fila de 3 cards -->
+        <article class="card" tabindex="0">
+            <img src="images/best1.jpg" alt="Producto 1" class="card-img">
+            <div class="card-info">
+                <h3 class="card-title">Producto 1</h3>
+                <p class="card-price">$24.99</p>
+                <div class="card-actions">
+                    <button class="btn btn-primary" type="button">Comprar</button>
+                </div>
+            </div>
+        </article>
+
+        <article class="card" tabindex="0">
+            <!-- Segunda card -->
+            <img src="images/best2.jpg" alt="Producto 2" class="card-img">
+            <div class="card-info">
+                <h3 class="card-title">Producto 2</h3>
+                <p class="card-price">$15.50</p>
+                <div class="card-actions">
+                    <button class="btn btn-primary" type="button">Comprar</button>
+                </div>
+            </div>
+        </article>
+
+        <article class="card" tabindex="0">
+            <!-- Tercera card -->
+            <img src="images/best3.jpg" alt="Producto 3" class="card-img">
+            <div class="card-info">
+                <h3 class="card-title">Producto 3</h3>
+                <p class="card-price">$19.99</p>
+                <div class="card-actions">
+                    <button class="btn btn-primary" type="button">Comprar</button>
+                </div>
+            </div>
+        </article>
+
+        <!-- Segunda fila de 3 cards -->
+        <article class="card" tabindex="0">
+            <img src="images/best4.jpg" alt="Producto 4" class="card-img">
+            <div class="card-info">
+                <h3 class="card-title">Producto 4</h3>
+                <p class="card-price">$29.99</p>
+                <div class="card-actions">
+                    <button class="btn btn-primary" type="button">Comprar</button>
+                </div>
+            </div>
+        </article>
+
+        <article class="card" tabindex="0">
+            <!-- Quinta card -->
+            <img src="images/best5.jpg" alt="Producto 5" class="card-img">
+            <div class="card-info">
+                <h3 class="card-title">Producto 5</h3>
+                <p class="card-price">$22.50</p>
+                <div class="card-actions">
+                    <button class="btn btn-primary" type="button">Comprar</button>
+                </div>
+            </div>
+        </article>
+
+        <article class="card" tabindex="0">
+            <!-- Sexta card -->
+            <img src="images/best6.jpg" alt="Producto 6" class="card-img">
+            <div class="card-info">
+                <h3 class="card-title">Producto 6</h3>
+                <p class="card-price">$18.99</p>
+                <div class="card-actions">
+                    <button class="btn btn-primary" type="button">Comprar</button>
+                </div>
+            </div>
+        </article>
+    </div>
+</section>
+
+<!-- Scripts al final del body -->
+<script src="js/carousel.js"></script>
 <script>
-/* JS mínimo para funcionalidad del carrusel (3 slides). Modifica si necesitas autoplay u otras opciones. */
-(function(){
-    const carousel = document.getElementById('mainCarousel');
-    const track = carousel.querySelector('.carousel-track');
-    const slides = Array.from(track.children);
-    const prev = carousel.querySelector('.carousel-control.prev');
-    const next = carousel.querySelector('.carousel-control.next');
-    const dots = Array.from(carousel.querySelectorAll('.dot'));
-    let index = 0;
-
-    function update() {
-        const percent = -index * 100;
-        track.style.transform = `translateX(${percent}%)`;
-        dots.forEach((d,i)=> d.classList.toggle('active', i===index));
-    }
-
-    prev.addEventListener('click', ()=> {
-        index = (index - 1 + slides.length) % slides.length;
-        update();
+    // Inicializar carrusel cuando el DOM esté listo
+    document.addEventListener('DOMContentLoaded', () => {
+        initCarousel();
     });
-
-    next.addEventListener('click', ()=> {
-        index = (index + 1) % slides.length;
-        update();
-    });
-
-    dots.forEach(d => d.addEventListener('click', (e) => {
-        index = Number(e.currentTarget.dataset.index) || 0;
-        update();
-    }));
-
-    // soporte teclado (izq/der)
-    carousel.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') prev.click();
-        if (e.key === 'ArrowRight') next.click();
-    });
-
-    // init
-    update();
-})();
 </script>
-
 </body>
 </html>
