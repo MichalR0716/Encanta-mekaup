@@ -430,7 +430,117 @@ body{
     border-radius: 3px;
 }
 
-/* responsive */
+/* FOOTER */
+.site-footer{
+    background: linear-gradient(180deg,#fff5f8,#fff0f6);
+    border-top: 1px solid var(--border);
+    padding: 2rem 1rem;
+    margin-top: 3rem;
+    color: var(--accent-contrast);
+}
+.footer-inner{
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.footer-brand{
+    flex: 1 1 260px;
+}
+.footer-brand .logo img{ width:140px; height:auto; display:block; }
+.footer-desc{
+    margin-top: 0.6rem;
+    color: rgba(6,63,61,0.85);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    max-width: 340px;
+}
+
+.footer-contact,
+.footer-social{
+    flex: 0 1 220px;
+}
+.footer-contact h3,
+.footer-social h3{
+    margin: 0 0 0.6rem;
+    font-size: 1rem;
+    color: var(--accent-contrast);
+    font-weight: 800;
+}
+.footer-contact p{
+    margin: 0.25rem 0;
+    font-size: 0.95rem;
+}
+.footer-contact a{
+    color: var(--accent-contrast);
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(6,63,61,0.06);
+    transition: color .12s ease, border-color .12s ease;
+}
+.footer-contact a:hover,
+.footer-contact a:focus{
+    color: var(--accent);
+    border-color: rgba(14,165,164,0.25);
+    outline: none;
+}
+
+.social-list{
+    display:flex;
+    gap:0.6rem;
+    padding:0;
+    margin:0;
+    list-style:none;
+    align-items:center;
+}
+.social-list li{ list-style:none; }
+.social-list a{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    width:40px;
+    height:40px;
+    border-radius:8px;
+    background: rgba(6,63,61,0.04);
+    color: var(--accent-contrast);
+    text-decoration:none;
+    transition: transform .12s ease, background .12s ease, color .12s ease, box-shadow .12s ease;
+}
+.social-list a:hover{
+    transform: translateY(-4px);
+    background: var(--accent);
+    color: #fff;
+    box-shadow: var(--shadow);
+}
+.social-list svg{ width:18px; height:18px; display:block; }
+
+.footer-bottom{
+    max-width: 1100px;
+    margin: 1.5rem auto 0;
+    text-align: center;
+    color: rgba(42,42,42,0.6);
+    font-size: 0.9rem;
+    padding-top: 0.8rem;
+    border-top: 1px solid rgba(0,0,0,0.03);
+}
+
+/* accesibilidad: focus visible */
+.footer-contact a:focus,
+.social-list a:focus{
+    outline: 3px solid rgba(14,165,164,0.15);
+    outline-offset: 3px;
+}
+
+/* responsive footer */
+@media (max-width: 720px){
+    .footer-inner{ flex-direction: column; align-items: flex-start; gap: 1rem; }
+    .footer-contact, .footer-social{ width: 100%; }
+    .footer-brand{ order: 0; }
+    .footer-bottom{ padding-top: 1rem; }
+}
+
 @media (max-width:800px){
     .carousel{max-width:100%; padding:0 0.5rem;}
     .carousel-slide img{max-height:320px;}
@@ -449,4 +559,17 @@ body{
 @media (max-width:560px){
     .cards-grid{grid-template-columns:1fr;}
     .card-img{height:160px;}
+}
+
+/* Estilos para el canvas de partículas (nieve) */
+.snow-canvas{
+    position: fixed;
+    inset: 0; /* top:0; right:0; bottom:0; left:0 */
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* no interfiere con clicks */
+    z-index: 800; /* por debajo del nav fijo (1000) */
+    mix-blend-mode: screen; /* efecto más suave sobre fondos oscuros/claros */
+    opacity: 0.95;
+    will-change: transform;
 }
